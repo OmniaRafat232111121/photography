@@ -17,26 +17,18 @@ if (!Array.isArray(slides) || slides.length <= 0) {
   }
   return (
     <div id='gallery' className='max-w-[1240px] mx-auto'>
-    <h1 className='text-2xl font-bold text-center p-4'>Gallery</h1>
-    <div className='relative flex justify-center p-4'>
-
-    {SliderData.map((slide, index) => {
-      return (
-        <div
-          key={index}
-          className={
-            index === current
-              ? 'opacity-[1] ease-in duration-1000'
-              : 'opacity-0'
-          }
-        >
+      <h1 className='text-2xl font-bold text-center p-4'>Gallery</h1>
+      <div className='relative flex justify-center p-4'>
+          {SliderData.map((slide,index)=>{
+            return(
+             <div key={index} className={index===current ?'opacity-[1] ease-in duration-1000':'opacity-0'}>
             <FaArrowCircleLeft
-              onClick={prevSlide}
-              className='absolute top-[50%] left-[30px] text-white/70 cursor-pointer select-none z-[2]'
-              size={50}
-            />
-            {index === current && (
-              <Image
+            onClick={prevSlide}
+            className="absolute top-[50%] left-0 cursor-pointer z-[2] text-white/70"
+            size={20}/>
+
+             {index===current&&(
+                <Image
                 src={slide.image}
                 alt='/'
                 width='1440'
@@ -45,15 +37,17 @@ if (!Array.isArray(slides) || slides.length <= 0) {
               />
             )}
             <FaArrowCircleRight
-              onClick={nextSlide}
-              className='absolute top-[50%] right-[30px] text-white/70 cursor-pointer select-none z-[2]'
-              size={50}
-            />
-          </div>
-      );
-  })}
-  </div>
-  </div>
+            onClick={prevSlide}
+            className="absolute top-[50%] left-0 cursor-pointer z-[2] text-white/70"
+            size={20}/>
+             </div>
+            )
+          })}
+
+          
+               
+    </div>
+    </div>
   );
 };
 
